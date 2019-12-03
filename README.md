@@ -9,8 +9,12 @@ Arduino, Raspbery Pi4, and Wifi-Chips.
    +  [CanaKit] with air cooling  
 +  [NodeMCU] 1.0 ESP 12E Module
 
+## Required Tools
++ PC with [OpenSSH Client] **Windows**  
+  + Linux/MAC have a builtin Tool
++ [VSCode] with [Remote Development] Enabled
 # Project 1
-Create node server for handling requests
+> Create node server for handling post requests for other devices
 
 
 ## Step 1 - Get Raspian Image
@@ -37,6 +41,74 @@ select the MicroSD you wish to create as a bootable
 ## Step 4 - Create SSH file
 ---
 
+Navigate into the `/boot` directory on the MicroSD  
+and create a `ssh` file 
+
+---
+
+## Step 5 - Test your setup
+---
+
++ Connect the Power to your Pi
++ Connect the LAN cable from your Pi to your home router
+  + This should be the same router your PC is connected to
+
+Your Pi green LED should blink for at least 5 second  
+## **Do not worry if you green LED stops blinking!**  
+
+As long as your red LED is solid after this, it mean we are good to go
+
+---
+## Step 6 - Connecting to your Pi via SSH
+---
+
+This is operating system specific
+
+### Windows
+---
+> TODO: I will fill this section in once I have proved a reliable solution
+
+---
+### Linux | Mac
+---
+We need to now find the IP address of the Pi in our network
+First lets query our network for devices
+
+Install [nmap]  
+
+#### Linux
+
+`sudo apt install nmap`
+
+#### Mac
+
+`brew install nmap`
+
+Now we need to determine our IP, but more importantly our subnet mask
+
+In terminal type the command `ifconfig`
+
+You should get a similar output:
+
+![](ifconfig.png)
+
+My CIDR is `/24` based on my Subnet mask of `255.255.255.0`
+
+This shows that my ip range is `192.168.0.0` --> `192.168.0.255`
+
+Our Pi must have an IP in that range
+
+Now we need to scan our network to find devices
+
+In terminal type in `sudo nmap -sn 192.168.1.0/24`  
+This will not work without a CIDR value added in
+
+The command does not tell you what is happening  
+So if you press the `up` arrow key it will show 
+you the scanning progress as shown below
+
+![](nmap_progress.png)
+
 
 ---
 
@@ -50,5 +122,8 @@ select the MicroSD you wish to create as a bootable
 [32GB]:https://www.amazon.ca/Sandisk-SDSQUAR-032G-GN6MA-Ultra-Micro-Adapter/dp/B073JWXGNT/ref=sr_1_3?crid=1NDQVWZX4F5F3&keywords=32+micro+sd+card&qid=1575380658&sprefix=32+micr%2Caps%2C185&sr=8-3
 [16GB]:https://www.amazon.ca/Sandisk-Ultra-Micro-UHS-I-Adapter/dp/B073K14CVB/ref=sr_1_3?keywords=16+micro+sd+card&qid=1575380697&sr=8-3
 [64GB]:https://www.amazon.ca/Sandisk-SDSQXA2-064G-GN6MA-Extreme-microSD-Adapter/dp/B07FCMBLV6/ref=sr_1_3?keywords=64+micro+sd+card&qid=1575380736&smid=A3DWYIK6Y9EEQB&sr=8-3
-
-[[balenaEtcher]]:https://www.balena.io/etcher/
+[OpenSSH Client]:https://docs.microsoft.com/en-gb/windows-server/administration/openssh/openssh_install_firstuse
+[balenaEtcher]:https://www.balena.io/etcher/
+[Remote Development]:https://code.visualstudio.com/docs/remote/ssh
+[VSCode]:https://code.visualstudio.com/
+[nmap]:https://nmap.org/
