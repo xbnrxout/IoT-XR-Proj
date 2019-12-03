@@ -233,7 +233,7 @@ We can now manage our node-app from here without having to using Vi/Vim
 and this gives us a familiar interface to create and edit our app
 
 ---
-## Step 10 - Add Git and SSH key for Github
+## Step 10 - Add Git and SSH key for Github/Gitlab/Bitbucket
 ---
 
 Within the terminal on VSCode let's install git  
@@ -252,6 +252,31 @@ Press `enter` unless you wish to change the directory the files are generated in
 ![](readme-images/ssh-keygen.png)
 
 You can default on the next few options by pressing `enter`
+
+Once you have generated your key. Log in to your Github/Gitlab/Bitbucket account, navigate to the `add ssh-key` section.
+
+To see your ssh-key, go back to the pi terminal on VSCode and type   
+> `vim ~/.ssh/id_rsa.pub`
+
+This will show you your public key
+
+
+## Ensure you select the .pub file, as you do not want to expose your private key
+
+Your ssh-key is now presented.
+
+Using your mouse, select everything in the file
+## Be careful, and make sure you select everything
+
+Right-click and copy.
+
+Now paste this key into your SSH-Key on Github/Gitlab/Bitbucket
+
+Enter the desired name. 
+I like to use the Name of the PC + Name of the OS
+> `XavierDesktopUbuntu1804`
+
+You have now a secure connection between your Pi and Github/Gitlab/Bitbucket
 
 ---
 
