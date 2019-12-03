@@ -1,12 +1,14 @@
 # IoT-XR-Proj
 
-This project will be a comprehensive tutorial as myself  learn about  
+This project will be a comprehensive tutorial as I learn about  
 Arduino, Raspbery Pi4, and Wifi-Chips.
+
+>This README will be constantly updated as I progress and learn
 
 ## Current Devices  
 +  [Arduino]   
-+  [Raspberry Pi 4] **(Required)** | 4GB RAM _(2GB min)_ | [64GB] Storage _([16GB] --> [32GB] **recomended**)_  
-   +  [CanaKit] with air cooling  
++  [Raspberry Pi 4] **(Required)** | 4GB RAM _(2GB min)_ | [64GB] MicroSD _([16GB] --> [32GB] **recomended**)_  
+   +  [CanaKit] with air cooling fan  
 +  [NodeMCU] 1.0 ESP 12E Module
 
 ## Required Tools
@@ -14,7 +16,7 @@ Arduino, Raspbery Pi4, and Wifi-Chips.
   + Linux/MAC have a builtin Tool
 + [VSCode] with [Remote Development] Enabled
 # Project 1
-> Create node server for handling post requests from other IoT devices
+> Create node server with endpoints for requests from devices
 
 
 ## Step 1 - Get Raspian Image
@@ -78,15 +80,16 @@ Install [nmap]
 
 #### Linux
 
-`sudo apt install nmap`
+>`sudo apt install nmap`
 
 #### Mac
 
-`brew install nmap`
+>`brew install nmap`
 
 Now we need to determine our IP, but more importantly our subnet mask
 
-In terminal type the command `ifconfig`
+In terminal type the command   
+> `ifconfig`
 
 You should get a similar output:
 
@@ -100,7 +103,9 @@ Our Pi must have an IP in that range
 
 Now we need to scan our network to find devices
 
-In terminal type in `sudo nmap -sn 192.168.0.0/24`  
+In terminal type in 
+> `sudo nmap -sn 192.168.0.0/24`   
+
 This will not work without a CIDR value added in
 
 The command does not tell you what is happening  
@@ -116,17 +121,82 @@ of `Unknown` or `RaspberryPi` with an IP associated.
 
 We can now go ahead and SSH into our Pi
 
-The default username is `pi`
-with a default password of `raspberry`
+The default username is 
+> `pi`
 
-In terminal type `pi@`_IP_ADDRESS_  
-On my PC I type in `pi@192.168.0.103`
+with a default password of  
+
+> `'raspberry'`
+
+In terminal type   
+> `ssh pi@`_IP_ADDRESS_  
+
+On my PC I type in   
+>  `ssh pi@192.168.0.103`
 
 A prompt will display and simply type in the default password
 
 ![](pi_ssh.png)
 
-You have now successfully logged into your pi!
+## You have now successfully logged into your pi!
+
+---
+## Step 7 - Install Nodejs and NPM
+---
+
+I like to install the LTS(Long Term Support) version as they are less   prone to bugs and latest release
+
+
+On the pi type in   
+> `sudo apt-get install curl`   
+
+then   
+> `curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`  
+
+Change the `setup_12.x` to the desired version you required  
+> e.g.  `setup_13.x` for version 13  
+> or `setup_14.x` for version 14
+
+then `sudo apt-get install nodejs`
+
+This will install the PPA desired version of Nodejs
+
+check the node version  
+>`node -v`  
+> should output `v12.13.1`  
+
+check the npm version 
+> `npm -v`  
+> should output `6.12.1`
+
+---
+## Step 8 - Create Directory for project
+---
+
+Still in the SSH connection  
+type the command 
+> `mkdir node-app`
+
+This creates and empty directory for your node app
+
+
+---
+## Step 9 - Create an SSH remote session in VSCode
+---
+
+type 
+> `exit`  
+
+to stop and logout of the Pi
+
+Open VSCode and press
+> `F1`  
+
+to open the Command Palette.  
+Search for and Select
+> `'Remote-SSH: Connect to Host...'`
+
+
 ---
 
 [Raspian Buster Lite]:https://www.raspberrypi.org/downloads/raspbian/
