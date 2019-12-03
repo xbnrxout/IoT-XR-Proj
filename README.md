@@ -1,3 +1,5 @@
+<span style="background-color:#363636">  
+
 # IoT-XR-Proj
 
 This project will be a comprehensive tutorial as I learn about  
@@ -197,7 +199,11 @@ Search for and Select
 > `'Remote-SSH: Connect to Host...'`
 
 
+
+
 ---
+
+</span>
 
 [Raspian Buster Lite]:https://www.raspberrypi.org/downloads/raspbian/
 [7-Zip]:https://www.7-zip.org/
