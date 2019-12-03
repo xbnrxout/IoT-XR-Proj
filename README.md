@@ -14,7 +14,7 @@ Arduino, Raspbery Pi4, and Wifi-Chips.
   + Linux/MAC have a builtin Tool
 + [VSCode] with [Remote Development] Enabled
 # Project 1
-> Create node server for handling post requests for other devices
+> Create node server for handling post requests from other IoT devices
 
 
 ## Step 1 - Get Raspian Image
@@ -71,7 +71,7 @@ This is operating system specific
 ---
 ### Linux | Mac
 ---
-We need to now find the IP address of the Pi in our network
+We need to now find the IP address of the Pi in our network  
 First lets query our network for devices
 
 Install [nmap]  
@@ -100,7 +100,7 @@ Our Pi must have an IP in that range
 
 Now we need to scan our network to find devices
 
-In terminal type in `sudo nmap -sn 192.168.1.0/24`  
+In terminal type in `sudo nmap -sn 192.168.0.0/24`  
 This will not work without a CIDR value added in
 
 The command does not tell you what is happening  
@@ -109,7 +109,24 @@ you the scanning progress as shown below
 
 ![](nmap_progress.png)
 
+We should get a table of ARP requests with a device with hostname  
+of `Unknown` or `RaspberryPi` with an IP associated.
 
+![](nmap_result.png)
+
+We can now go ahead and SSH into our Pi
+
+The default username is `pi`
+with a default password of `raspberry`
+
+In terminal type `pi@`_IP_ADDRESS_  
+On my PC I type in `pi@192.168.0.103`
+
+A prompt will display and simply type in the default password
+
+![](pi_ssh.png)
+
+You have now successfully logged into your pi!
 ---
 
 [Raspian Buster Lite]:https://www.raspberrypi.org/downloads/raspbian/
