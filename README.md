@@ -93,7 +93,7 @@ In terminal type the command
 
 You should get a similar output:
 
-![](ifconfig.png)
+![](readme-images/ifconfig.png)
 
 My CIDR is `/24` based on my Subnet mask of `255.255.255.0`
 
@@ -112,12 +112,12 @@ The command does not tell you what is happening
 So if you press the `up` arrow key it will show 
 you the scanning progress as shown below
 
-![](nmap_progress.png)
+![](readme-images/nmap_progress.png)
 
 We should get a table of ARP requests with a device with hostname  
 of `Unknown` or `RaspberryPi` with an IP associated.
 
-![](nmap_result.png)
+![](readme-images/nmap_result.png)
 
 We can now go ahead and SSH into our Pi
 
@@ -129,7 +129,7 @@ with a default password of
 > `'raspberry'`
 
 In terminal type   
-> `ssh pi@`_IP_ADDRESS_  
+> `ssh pi@`_`IP_ADDRESS`_
 
 On my PC I type in   
 >  `ssh pi@192.168.0.103`
@@ -137,7 +137,7 @@ On my PC I type in
 A prompt will display and simply type in the default password
 
 
-![](pi_ssh.png)
+![](readme-images/pi_ssh.png)
 
 You might be prompted to change your password. Do so now
 
@@ -202,7 +202,7 @@ Search for and Select
 Enter your ssh connection string
 > `pi@_IP_ADDRESS_`
 
-![](vscode_remote.png)
+![](readme-images/vscode_remote.png)
 
 You will be prompted for a password, so the password you have set on the pi  
 is what you enter here
@@ -222,7 +222,7 @@ You can now edit and configure your server from here.
 
 Select `terminal` from the top menu and then select `New Terminal`
 
-Open `File Explorer` ![](file_explorer.png) from the side menu
+Open `File Explorer` ![](readme-images/file_explorer.png) from the side menu
 
 Select `Open Folder` and select from the dropdown menu that pops up our  
 `node-app` directory and press `OK`
@@ -231,6 +231,27 @@ Re-enter your password
 
 We can now manage our node-app from here without having to using Vi/Vim  
 and this gives us a familiar interface to create and edit our app
+
+---
+## Step 10 - Add Git and SSH key for Github
+---
+
+Within the terminal on VSCode let's install git  
+type in 
+> `sudo apt install git`
+
+We should now create an ssh key for secure connection to github   
+_(Also so we dont have to enter a username and password everytime)_
+
+
+type in   
+> `ssh-keygen -t rsa -b 4096 -C ` _`YOUR_EMAIL_ADDRESS_ON_GITHUB"`_
+
+Press `enter` unless you wish to change the directory the files are generated in
+
+![](readme-images/ssh-keygen.png)
+
+You can default on the next few options by pressing `enter`
 
 ---
 
