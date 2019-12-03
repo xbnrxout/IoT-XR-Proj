@@ -1,5 +1,3 @@
-<div style="background-color:#262626">  
-
 # IoT-XR-Proj
 
 This project will be a comprehensive tutorial as I learn about  
@@ -138,7 +136,10 @@ On my PC I type in
 
 A prompt will display and simply type in the default password
 
+
 ![](pi_ssh.png)
+
+You might be prompted to change your password. Do so now
 
 ## You have now successfully logged into your pi!
 
@@ -198,12 +199,41 @@ to open the Command Palette.
 Search for and Select
 > `'Remote-SSH: Connect to Host...'`
 
+Enter your ssh connection string
+> `pi@_IP_ADDRESS_`
 
+![](vscode_remote.png)
 
+You will be prompted for a password, so the password you have set on the pi  
+is what you enter here
+
+## Windows
+---
+> TODO: I will fill this section in once I have proved a reliable solution
 
 ---
 
-</div>
+## Linux/Mac
+---
+
+You can now edit and configure your server from here.
+
+Select `terminal` from the menu and then select `New Terminal`
+
+Open `File Explorer` ![](file_explorer.png)  
+from the side menu
+
+Select `Open Folder`
+
+and select from the dropdown menu that pops up our `node-app` directory
+and press `OK`
+
+Re-enter your password
+
+We can now manage our node-app from here without having to using Vi/Vim  
+and this gives us a familiar interface to create and edit our app
+
+---
 
 [Raspian Buster Lite]:https://www.raspberrypi.org/downloads/raspbian/
 [7-Zip]:https://www.7-zip.org/
