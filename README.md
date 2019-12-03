@@ -166,11 +166,11 @@ This will install the PPA desired version of Nodejs
 
 check the node version  
 >`node -v`  
-> should output `v12.13.1`  
+> `v12.13.1`  
 
 check the npm version 
 > `npm -v`  
-> should output `6.12.1`
+> `6.12.1`
 
 ---
 ## Step 8 - Create Directory for project
@@ -207,6 +207,8 @@ Enter your ssh connection string
 You will be prompted for a password, so the password you have set on the pi  
 is what you enter here
 
+---
+
 ## Windows
 ---
 > TODO: I will fill this section in once I have proved a reliable solution
@@ -218,15 +220,12 @@ is what you enter here
 
 You can now edit and configure your server from here.
 
-Select `terminal` from the menu and then select `New Terminal`
+Select `terminal` from the top menu and then select `New Terminal`
 
-Open `File Explorer` ![](file_explorer.png)  
-from the side menu
+Open `File Explorer` ![](file_explorer.png) from the side menu
 
-Select `Open Folder`
-
-and select from the dropdown menu that pops up our `node-app` directory
-and press `OK`
+Select `Open Folder` and select from the dropdown menu that pops up our  
+`node-app` directory and press `OK`
 
 Re-enter your password
 
